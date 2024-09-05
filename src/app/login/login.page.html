@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-title style="text-align: center; color: whitesmoke;  background-color: rgb(237, 57, 17);" >Login SkeletonAPP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list style="margin-top: 20%;">
+    <h5 style="font-size: 20px; font-family: 'Segoe UI'; text-align: center;">Iniciar Sesion</h5>
+    <ion-item>  
+      <ion-input label="Usuario:" [(ngModel)]="username"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-input label="Contraseña:" type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-button expand="block" (click)="validateLogin()">Ingresa</ion-button>
+
+  <div class="ion-text-center" style="margin-top: 20px;">
+    <a routerLink="/signup">Crear una cuenta nueva</a>
+  </div>
+  
+</ion-content>
+ 
