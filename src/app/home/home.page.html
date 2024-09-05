@@ -1,20 +1,54 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title style="text-align: center; color: whitesmoke;  background-color: rgb(237, 57, 17);"> Home SkeletorAPP </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content style=" background-color:  rgb(237, 57, 17);; color: white;">
+  
+  <h3 class="bienvenida">
+    Bienvenido: {{ username }}
+    <ion-button style="margin-left: 70%;" [routerLink]="['/login']">Desconectar</ion-button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </h3>
+
+
+  <div class="calendario">
+    <h3 class="calendari">Calendario</h3>
+    <ion-datetime style="margin-left: 10%;" display-format="MMMM DD, YYYY"></ion-datetime>
+  </div>
+
+  <div class="asignaturas">
+    <h3 class="calendari">Asignaturas</h3>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Inglés</ion-label>
+        <ion-progress-bar value="0.9" color="success"></ion-progress-bar>
+        <ion-text style="margin-left: 10px;"> 97% </ion-text>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Calidad de Software</ion-label>
+        <ion-progress-bar value="1.0" color="success"></ion-progress-bar>
+        <ion-text style="margin-left: 10px;"> 100% </ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Arquitectura</ion-label>
+        <ion-progress-bar value="1.0" color="success"></ion-progress-bar>
+        <ion-text style="margin-left: 10px;"> 100% </ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Programación de Aplicaciones Móviles</ion-label>
+        <ion-progress-bar value="0.8" color="success"></ion-progress-bar>
+        <ion-text style="margin-left: 10px;"> 90% </ion-text>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
+
+<ion-footer style="background: rgb(49, 49, 170);">
+  <ion-button expand="block">Generar QR Asistencias</ion-button>
+</ion-footer>
