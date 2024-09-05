@@ -4,51 +4,43 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content style=" background-color:  rgb(237, 57, 17);; color: white;">
-  
-  <h3 class="bienvenida">
-    Bienvenido: {{ username }}
-    <ion-button style="margin-left: 70%;" [routerLink]="['/login']">Desconectar</ion-button>
+<ion-content [fullscreen]="true">
+  <ion-header class="ion-no-border">
+      <ion-toolbar class=" ion-text-center">
+          <ion-title size="large">Bienvenido!</ion-title>
+      </ion-toolbar>
+      Usuario logueado: {{ username }}
+  </ion-header>
 
-  </h3>
-
-
-  <div class="calendario">
-    <h3 class="calendari">Calendario</h3>
-    <ion-datetime style="margin-left: 10%;" display-format="MMMM DD, YYYY"></ion-datetime>
-  </div>
-
-  <div class="asignaturas">
-    <h3 class="calendari">Asignaturas</h3>
-
-    <ion-list>
+  <ion-list>
       <ion-item>
-        <ion-label>Inglés</ion-label>
-        <ion-progress-bar value="0.9" color="success"></ion-progress-bar>
-        <ion-text style="margin-left: 10px;"> 97% </ion-text>
+          <ion-input label="Nombre" [(ngModel)]="name"></ion-input>
       </ion-item>
-      
       <ion-item>
-        <ion-label>Calidad de Software</ion-label>
-        <ion-progress-bar value="1.0" color="success"></ion-progress-bar>
-        <ion-text style="margin-left: 10px;"> 100% </ion-text>
+          <ion-input label="Apellido" [(ngModel)]="lastname"></ion-input>
       </ion-item>
-
       <ion-item>
-        <ion-label>Arquitectura</ion-label>
-        <ion-progress-bar value="1.0" color="success"></ion-progress-bar>
-        <ion-text style="margin-left: 10px;"> 100% </ion-text>
+          <ion-select label="Nivel Educacional" [(ngModel)]="edLevel" placeholder="Elige una opción">
+              <ion-select-option *ngFor="let level of edLevels | keyvalue"
+              value="level.key"> {{level.value}}
+              </ion-select-option>
+          </ion-select>
       </ion-item>
-
       <ion-item>
-        <ion-label>Programación de Aplicaciones Móviles</ion-label>
-        <ion-progress-bar value="0.8" color="success"></ion-progress-bar>
-        <ion-text style="margin-left: 10px;"> 90% </ion-text>
+          <ion-input label="Fec. Nac." [(ngModel)]="birthday" readonly>
+          </ion-input>
+          <ion-button fill="clear" id="open-datetime">
+              <ion-icon name="calendar"></ion-icon>
+          </ion-button>
+          <ion-popover trigger="open-datetime" triggerAction="click">
+              <ng-template>
+                  <ion-datetime [(ngModel)]="birthday" locale="es-ES"
+                                [showDefaultButtons]="true" presentation="date">
+                  </ion-datetime>
+              </ng-template>
+          </ion-popover>
       </ion-item>
-    </ion-list>
-  </div>
+  </ion-list>
+  <ion-button (click)="clean()">Limpiar</ion-button>
+  <ion-button (click)="showInfo()">Mostrar</ion-button>
 </ion-content>
-
-<ion-footer style="background: rgb(49, 49, 170);">
-  <ion-button expand="block">Generar QR Asistencias</ion-button>
-</ion-footer>
